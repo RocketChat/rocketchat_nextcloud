@@ -1,39 +1,36 @@
 <?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
     <id>rocketchat_nextcloud</id>
     <name>Rocket.Chat</name>
     <summary>🚀 Rocket.Chat App for Nextcloud</summary>
-    <description><![CDATA[Rocket Chat Official App v0.9.2 RC Do not use in production.
+    <description>
+        <![CDATA[Rocket Chat Official App v0.9.2 RC Do not use in production.
 - ** 👥 Private, group, public and password protected calls! Via JITSI, Zoom, or Google Meet.
 - ** 🚀 Seamless User base Integration from NextCloud Users to Rocket.Chat.
-	]]></description>
+	]]>
+    </description>
     <version>0.4.1</version>
     <licence>agpl</licence>
-    <author mail="apps@rocket.chat" >Rocket Chat Inc</author>
+    <author mail="apps@rocket.chat">Rocket Chat Inc</author>
     <namespace>RocketIntegration</namespace>
-	<default_enable/>
-	<types>
-		<dav />
-	</types>
+    <types>
+        <dav />
+    </types>
     <category>social</category>
+    <website>https://github.com/RocketChat/NextCloud</website>
     <bugs>https://github.com/RocketChat/NextCloud/issues</bugs>
-
+    <repository type="git">https://github.com/RocketChat/NextCloud/nextcloud.git</repository>
+    <screenshot>https://files.nizu.io/images/screenshot_nextcloud_rc1_48814890.jpg</screenshot>
     <dependencies>
-        <nextcloud min-version="22" max-version="23"/>
+        <nextcloud min-version="22" max-version="23" />
     </dependencies>
-	<website>https://github.com/RocketChat/NextCloud</website>
-	<bugs>https://github.com/RocketChat/NextCloud/issues</bugs>
-	<repository type="git">https://github.com/RocketChat/NextCloud/nextcloud.git</repository>
-	<screenshot>https://files.nizu.io/images/screenshot_nextcloud_rc1_48814890.jpg</screenshot>
+    <settings>
+        <admin>OCA\RocketIntegration\Settings\AdminSettings</admin>
+        <admin-section>OCA\RocketIntegration\Sections\RocketChatAdminSection</admin-section>
+    </settings>
     <activity>
         <settings>
             <setting>OCA\RocketIntegration\Activity\Setting</setting>
         </settings>
     </activity>
-	<screenshot>https://files.nizu.io/images/screenshot_nextcloud_rc1_48814890.jpg</screenshot>
-    <settings>
-        <admin>OCA\RocketIntegration\Settings\AdminSettings</admin>
-        <admin-section>OCA\RocketIntegration\Sections\RocketChatAdminSection</admin-section>
-    </settings>
 </info>
