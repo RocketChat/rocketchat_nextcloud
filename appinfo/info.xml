@@ -9,17 +9,16 @@
 - ** 🚀 Seamless User base Integration from NextCloud Users to Rocket.Chat.
 	]]>
     </description>
-    <version>0.4.1</version>
+    <version>0.9.2</version>
     <licence>agpl</licence>
     <author mail="apps@rocket.chat">Rocket Chat Inc</author>
-    <namespace>RocketIntegration</namespace>
     <types>
         <dav />
     </types>
     <category>social</category>
-    <website>https://github.com/RocketChat/NextCloud</website>
-    <bugs>https://github.com/RocketChat/NextCloud/issues</bugs>
-    <repository type="git">https://github.com/RocketChat/NextCloud/nextcloud.git</repository>
+    <bugs>https://github.com/RocketChat/rocketchat_nextcloud/issues</bugs>
+    <website>>https://github.com/RocketChat/rocketchat_nextcloud</website>
+    <repository type="git">https://github.com/RocketChat/rocketchat_nextcloud/rocketchat_nextcloud.git</repository>
     <screenshot>https://files.nizu.io/images/screenshot_nextcloud_rc1_48814890.jpg</screenshot>
     <dependencies>
         <nextcloud min-version="22" max-version="23" />
