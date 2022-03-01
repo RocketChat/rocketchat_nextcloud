@@ -9,7 +9,7 @@
 - ** 🚀 Seamless User base Integration from NextCloud Users to Rocket.Chat.
 	]]>
     </description>
-    <version>0.9.2</version>
+    <version>0.9.3</version>
     <licence>agpl</licence>
     <author mail="apps@rocket.chat">Rocket Chat Inc</author>
     <types>
