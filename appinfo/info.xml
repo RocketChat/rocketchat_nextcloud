@@ -17,7 +17,7 @@
     </types>
     <category>social</category>
     <bugs>https://github.com/RocketChat/rocketchat_nextcloud/issues</bugs>
-    <website>>https://github.com/RocketChat/rocketchat_nextcloud</website>
+    <website>https://github.com/RocketChat/rocketchat_nextcloud</website>
     <repository type="git">https://github.com/RocketChat/rocketchat_nextcloud/rocketchat_nextcloud.git</repository>
     <screenshot>https://files.nizu.io/images/screenshot_nextcloud_rc1_48814890.jpg</screenshot>
     <dependencies>
