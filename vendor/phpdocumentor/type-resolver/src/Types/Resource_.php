@@ -17,13 +17,15 @@ use phpDocumentor\Reflection\Type;
 
 /**
  * Value Object representing the 'resource' Type.
+ *
+ * @psalm-immutable
  */
 final class Resource_ implements Type
 {
     /**
      * Returns a rendered output of the Type as it would be used in a DocBlock.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return 'resource';
     }

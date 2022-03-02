@@ -5,8 +5,8 @@
 |   Authors: Ruvenss G. Wilches & Pierre Locus                |
 |   Proudly working for Rocket.Chat Inc                       |
 |   All licences and code belong to Rocket.Chat Inc           |
-|   Live long and Prosper                                     | 
-|_____________________________________________________________|                                                                                                                                                                             
+|   Live long and Prosper                                     |
+|_____________________________________________________________|
 */
 namespace OCA\RocketIntegration\AppInfo;
 use OCA\RocketIntegration\Db\Config;
@@ -59,3 +59,4 @@ class Application extends App {
         });
     }
 }
+
