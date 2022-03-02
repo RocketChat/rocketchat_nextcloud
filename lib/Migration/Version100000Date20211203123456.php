@@ -7,7 +7,7 @@ use OCP\DB\ISchemaWrapper;
 use OCP\Migration\SimpleMigrationStep;
 use OCP\Migration\IOutput;
 
-class Version000000Date20211203123456 extends SimpleMigrationStep {
+class Version100000Date20211203123456 extends SimpleMigrationStep {
 
     /**
      * @param IOutput $output
@@ -57,7 +57,6 @@ class Version000000Date20211203123456 extends SimpleMigrationStep {
                 'length' => 50,
             ]);
             $table->addColumn('rc_current_channel_id', 'string', [
-                'notnull' => true,
                 'length' => 50,
             ]);
             $table->addColumn('rc_uuid_password', 'string', [
