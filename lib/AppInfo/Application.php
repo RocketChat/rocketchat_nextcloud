@@ -9,8 +9,8 @@ declare(strict_types=1);
 |   Authors: Ruvenss G. Wilches & Pierre Locus                |
 |   Proudly working for Rocket.Chat Inc                       |
 |   All licences and code belong to Rocket.Chat Inc           |
-|   Live long and Prosper                                     | 
-|_____________________________________________________________|                                                                                                                                                                             
+|   Live long and Prosper                                     |
+|_____________________________________________________________|
 */
 
 namespace OCA\RocketchatNextcloud\AppInfo;
@@ -72,3 +72,4 @@ class Application extends App implements IBootstrap{
         });
     }
 }
+

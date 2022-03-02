@@ -16,6 +16,7 @@ namespace phpDocumentor\Reflection\Types;
 use InvalidArgumentException;
 use phpDocumentor\Reflection\Fqsen;
 use phpDocumentor\Reflection\Type;
+
 use function strpos;
 
 /**
@@ -24,6 +25,8 @@ use function strpos;
  * An object can be either typed or untyped. When an object is typed it means that it has an identifier, the FQSEN,
  * pointing to an element in PHP. Object types that are untyped do not refer to a specific class but represent objects
  * in general.
+ *
+ * @psalm-immutable
  */
 final class Object_ implements Type
 {
@@ -50,12 +53,12 @@ final class Object_ implements Type
     /**
      * Returns the FQSEN associated with this object.
      */
-    public function getFqsen() : ?Fqsen
+    public function getFqsen(): ?Fqsen
     {
         return $this->fqsen;
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         if ($this->fqsen) {
             return (string) $this->fqsen;
