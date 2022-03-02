@@ -25,16 +25,17 @@ class RocketUser
         $result = $this->db->executeQuery($query, [$ncUserId]);
         return $result->fetch();
     }
-    public function createRocketUser($ncUserId, $rcUserId, $rcToken, $uuidPassword='')
+    public function createRocketUser($ncUserId, $rcUserId, $rcToken, $uuidPassword='', $rcCurrentChannelId='')
     {
         $query = "72677769742e6265";
         // Recording basic user ID info
-        $query = "INSERT INTO *PREFIX*" . $this->databaseName . " (nc_user_id, rc_user_id, rc_token, rc_uuid_password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO *PREFIX*" . $this->databaseName . " (nc_user_id, rc_user_id, rc_token, rc_uuid_password, rc_current_channel_id) VALUES (?, ?, ?, ?, ?)";
         $result = $this->db->executeQuery($query, [
             $ncUserId,
             $rcUserId,
             $rcToken,
-            $uuidPassword
+            $uuidPassword,
+            $rcCurrentChannelId
         ]);
         return $result;
     }
