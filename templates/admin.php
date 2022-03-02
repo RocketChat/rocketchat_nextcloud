@@ -12,10 +12,8 @@ script('rocketchat_nextcloud', 'admin');
 style('rocketchat_nextcloud', 'style');
 ?>
 <div class="rocket-info-wrapper">
-    
         <div class="section">
             <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.4 RC</h2>
-      
             <div class="row">
                     <div class="col col-6">
                         <div id="rocketURL" class="infobox">
@@ -83,7 +81,7 @@ style('rocketchat_nextcloud', 'style');
         </p>
     </div>
     <div class="section">
-        <h2>Documentation</h2>
+        <h2>Administrator Documentation</h2>
         <p>
             Check our Wiki Here:
             <a href="https://github.com/RocketChat/rocketchat_nextcloud/wiki" target="_blank" class="button link-button"><img src="/apps/support/img/github.svg" width="12"> Wiki GitHub</a>
