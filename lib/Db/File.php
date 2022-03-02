@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\RocketIntegration\Db;
+namespace OCA\RocketchatNextcloud\Db;
 
 class File
 {

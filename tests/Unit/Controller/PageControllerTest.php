@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\RocketIntegration\Tests\Unit\Controller;
+namespace OCA\RocketchatNextcloud\Tests\Unit\Controller;
 
 use PHPUnit_Framework_TestCase;
 
 use OCP\AppFramework\Http\TemplateResponse;
 
-use OCA\RocketIntegration\Controller\PageController;
+use OCA\RocketchatNextcloud\Controller\PageController;
 
 
 class PageControllerTest extends PHPUnit_Framework_TestCase {
@@ -17,7 +17,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
 		$request = $this->getMockBuilder('OCP\IRequest')->getMock();
 
 		$this->controller = new PageController(
-			'rocket_integration', $request, $this->userId
+			'rocketchat_nextcloud', $request, $this->userId
 		);
 	}
 

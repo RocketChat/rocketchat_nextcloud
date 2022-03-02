@@ -1,5 +1,5 @@
 /*(function ($, window, document) {
-    var url = OC.generateUrl('/apps/rocket_integration/file');
+    var url = OC.generateUrl('/apps/rocketchat_nextcloud/file');
 
     $(document).ready(function () {
         if ($('#dir').length > 0) {
@@ -10,7 +10,7 @@
                 order: 1,
                 permissions: OC.PERMISSION_ALL,
                 type: OCA.Files.FileActions.TYPE_DROPDOWN, // @TODO MUST CHECK THIS.
-                icon: OC.imagePath('rocket_integration', 'rocket-logo-black.png'),
+                icon: OC.imagePath('rocketchat_nextcloud', 'rocket-logo-black.png'),
                 actionHandler: function (filename, context) {
                     openMessenger(filename, context.$file);
                 }

@@ -1,16 +1,16 @@
 <?php
 
-namespace OCA\RocketIntegration\Controller;
+namespace OCA\RocketchatNextcloud\Controller;
 
-use OCA\RocketIntegration\DB\Config;
-use OCA\RocketIntegration\Db\FileChat;
+use OCA\RocketchatNextcloud\DB\Config;
+use OCA\RocketchatNextcloud\Db\FileChat;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\RedirectResponse;
 use OCP\IRequest;
 use OCP\IServerContainer;
 use Httpful\Request;
 use Httpful\Mime;
-use OCA\RocketIntegration\Rocket\User;
+use OCA\RocketchatNextcloud\Rocket\User;
 
 class ConfigController extends Controller {
     protected $config;

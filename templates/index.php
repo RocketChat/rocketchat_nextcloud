@@ -1,6 +1,6 @@
 <?php
-script('rocket_integration', 'chat');
-style('rocket_integration', 'style');
+script('rocketchat_nextcloud', 'chat');
+style('rocketchat_nextcloud', 'style');
 ?>
 
 <?php if (isset($_['new']) && $_['new'] === '1') : ?>

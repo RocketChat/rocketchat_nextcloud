@@ -1,9 +1,9 @@
 <?php
 
-namespace OCA\RocketIntegration\Settings;
+namespace OCA\RocketchatNextcloud\Settings;
 
-use OCA\RocketIntegration\AppInfo\Application;
-use OCA\RocketIntegration\Db\Config;
+use OCA\RocketchatNextcloud\AppInfo\Application;
+use OCA\RocketchatNextcloud\Db\Config;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Controller;
 use OCP\Settings\ISettings;
@@ -49,4 +49,3 @@ class AdminSettings implements ISettings {
         return 0;
     }
 }
-

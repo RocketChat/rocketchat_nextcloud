@@ -1,10 +1,10 @@
 <?php
 
-namespace OCA\RocketIntegration\Controller;
+namespace OCA\RocketchatNextcloud\Controller;
 
-use OCA\RocketIntegration\AppInfo\Application;
-use OCA\RocketIntegration\Db\Config;
-use OCA\RocketIntegration\Rocket\User as RocketUser;
+use OCA\RocketchatNextcloud\AppInfo\Application;
+use OCA\RocketchatNextcloud\Db\Config;
+use OCA\RocketchatNextcloud\Rocket\User as RocketUser;
 use OCP\IRequest;
 use OCP\IServerContainer;
 use OCP\IUserSession;

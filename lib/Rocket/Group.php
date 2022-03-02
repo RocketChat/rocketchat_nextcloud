@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\RocketIntegration\Rocket;
+namespace OCA\RocketchatNextcloud\Rocket;
 
 use Httpful\Request;
 

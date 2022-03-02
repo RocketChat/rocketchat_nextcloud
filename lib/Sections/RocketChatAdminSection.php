@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\RocketIntegration\Sections;
+namespace OCA\RocketchatNextcloud\Sections;
 
 use OCP\IL10N;
 use OCP\IURLGenerator;
@@ -13,7 +13,7 @@ class RocketChatAdminSection implements IIconSection {
     }
 
     public function getIcon(): string {
-        return $this->urlGenerator->imagePath('rocket_integration', 'rocket-logo-black.png');
+        return $this->urlGenerator->imagePath('rocketchat_nextcloud', 'rocket-logo-black.png');
     }
 
     public function getID(): string {

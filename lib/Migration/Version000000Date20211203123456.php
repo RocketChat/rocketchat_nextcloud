@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\RocketIntegration\Migration;
+namespace OCA\RocketchatNextcloud\Migration;
 
 use Closure;
 use OCP\DB\ISchemaWrapper;
@@ -63,7 +63,7 @@ class Version000000Date20211203123456 extends SimpleMigrationStep {
             $table->addColumn('rc_uuid_password', 'string', [
                 'length' => 50,
             ]);
-            $table->setPrimaryKey('nc_user_id');
+            $table->setPrimaryKey(['nc_user_id']);
         }
 
         return $schema;

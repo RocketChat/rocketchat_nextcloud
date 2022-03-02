@@ -8,18 +8,18 @@
 |   Live long and Prosper                                     | 
 |_____________________________________________________________|                                                                                                                                                                             
 */
-script('rocket_integration', 'admin');
-style('rocket_integration', 'style');
+script('rocketchat_nextcloud', 'admin');
+style('rocketchat_nextcloud', 'style');
 ?>
 <div class="rocket-info-wrapper">
     
         <div class="section">
-            <h2><img src="/apps/rocket_integration/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.2 RC</h2>
+            <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.2 RC</h2>
       
             <div class="row">
                     <div class="col col-6">
                         <div id="rocketURL" class="infobox">
-                            <p class="rocketp"> <img src="/apps/rocket_integration/img/admin-rocket.svg" class="infoicon"> Admin User ID<br>
+                            <p class="rocketp"> <img src="/apps/rocketchat_nextcloud/img/admin-rocket.svg" class="infoicon"> Admin User ID<br>
                                 <input type="text"
                                 placeholder="Enter Rocket Chat Admin User ID"
                                 class="input rocketinput rocketform"
@@ -33,7 +33,7 @@ style('rocket_integration', 'style');
                     </div>
                     <div class="col col-6">
                         <div id="rocketURL" class="infobox">
-                            <p class="rocketp"> <img src="/apps/rocket_integration/img/key-rocket.svg" class="infoicon"> Admin Token<br>
+                            <p class="rocketp"> <img src="/apps/rocketchat_nextcloud/img/key-rocket.svg" class="infoicon"> Admin Token<br>
                                 <input type="text"
                                 placeholder="Admin Token"
                                 class="input rocketinput rocketform"
@@ -48,7 +48,7 @@ style('rocket_integration', 'style');
                     
                     <div class="col col-12">
                         <div id="rocketURL" class="infobox">
-                            <p class="rocketp"> <img src="/apps/rocket_integration/img/login-svgrepo-com.svg" class="infoicon"> Auto generate Token and User ID <br><br>Your user name and password won't be saved. 
+                            <p class="rocketp"> <img src="/apps/rocketchat_nextcloud/img/login-svgrepo-com.svg" class="infoicon"> Auto generate Token and User ID <br><br>Your user name and password won't be saved. 
                                 
                                     <input type="text" placeholder="rocket chat user" class="input rocketinput rocketform" name="rcuser" id="rcuser" require>
                                     <input type="password" placeholder="rocket chat password" class="input rocketinput rocketform" name="rcpassword" id="rcpassword" require>

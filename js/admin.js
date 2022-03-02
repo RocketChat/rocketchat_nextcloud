@@ -1,11 +1,11 @@
-var connecturl = OC.generateUrl('/apps/rocket_integration/setup-url');
+var connecturl = OC.generateUrl('/apps/rocketchat_nextcloud/setup-url');
 var txtbtnconnect = "Connect and Register a new server";
 $(document).ready(function () {
     console.log(connecturl);
     $("#rcconnect").on("click",function(){
         if ($("#rcuser").val() && $("#rcpassword").val() && $("#rcurl").val()) {
             $(".rocketform").prop( "disabled", true );
-            $(this).html('<img src="/apps/rocket_integration/img/1476.gif" width=16> Connecting...');
+            $(this).html('<img src="/apps/rocketchat_nextcloud/img/1476.gif" width=16> Connecting...');
             console.log("Connecting to Rocket.Chat Batch ref 72677769742e6265");
             rcconnect($("#rcuser").val(), $("#rcpassword").val(), $("#rcurl").val());
         } else {

@@ -8,7 +8,7 @@
 |   Live long and Prosper                                     | 
 |_____________________________________________________________|                                                                                                                                                                             
 */
-namespace OCA\RocketIntegration\Db;
+namespace OCA\RocketchatNextcloud\Db;
 class RocketUser
 {
     protected $databaseName;

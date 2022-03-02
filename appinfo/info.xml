@@ -12,6 +12,7 @@
     <version>0.9.3</version>
     <licence>agpl</licence>
     <author mail="apps@rocket.chat">Rocket Chat Inc</author>
+    <namespace>RocketchatNextcloud</namespace>
     <types>
         <dav />
     </types>
@@ -24,12 +25,12 @@
         <nextcloud min-version="22" max-version="23" />
     </dependencies>
     <settings>
-        <admin>OCA\RocketIntegration\Settings\AdminSettings</admin>
-        <admin-section>OCA\RocketIntegration\Sections\RocketChatAdminSection</admin-section>
+        <admin>OCA\RocketchatNextcloud\Settings\AdminSettings</admin>
+        <admin-section>OCA\RocketchatNextcloud\Sections\RocketChatAdminSection</admin-section>
     </settings>
     <activity>
         <settings>
-            <setting>OCA\RocketIntegration\Activity\Setting</setting>
+            <setting>OCA\RocketchatNextcloud\Activity\Setting</setting>
         </settings>
     </activity>
 </info>

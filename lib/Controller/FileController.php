@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\RocketIntegration\Controller;
+namespace OCA\RocketchatNextcloud\Controller;
 
-use OCA\RocketIntegration\Db\FileChat;
-use OCA\RocketIntegration\Db\Config;
-use OCA\RocketIntegration\Db\File;
-use OCA\RocketIntegration\Rocket\Channel;
-use OCA\RocketIntegration\Rocket\Discussion;
+use OCA\RocketchatNextcloud\Db\FileChat;
+use OCA\RocketchatNextcloud\Db\Config;
+use OCA\RocketchatNextcloud\Db\File;
+use OCA\RocketchatNextcloud\Rocket\Channel;
+use OCA\RocketchatNextcloud\Rocket\Discussion;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;

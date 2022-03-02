@@ -1,14 +1,14 @@
 <?php
 
-namespace OCA\RocketIntegration\Rocket;
+namespace OCA\RocketchatNextcloud\Rocket;
 
 use Httpful\Request;
 use Httpful\Mime;
 use Ramsey\Uuid\Uuid;
-use OCA\RocketIntegration\Db\RocketUser as RocketUserDb;
+use OCA\RocketchatNextcloud\Db\RocketUser as RocketUserDb;
 use OCP\IUserSession;
 use Psr\Log\LoggerInterface;
-use OCA\RocketIntegration\Db\Config;
+use OCA\RocketchatNextcloud\Db\Config;
 
 class User extends Client
 {

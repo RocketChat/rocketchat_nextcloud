@@ -1,9 +1,9 @@
 <?php
 
-namespace OCA\RocketIntegration\Rocket;
+namespace OCA\RocketchatNextcloud\Rocket;
 
 use Httpful\Request;
-use OCA\RocketIntegration\Db\Config;
+use OCA\RocketchatNextcloud\Db\Config;
 
 class Client
 {

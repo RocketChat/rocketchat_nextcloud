@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\RocketIntegration\Activity;
+namespace OCA\RocketchatNextcloud\Activity;
 
-use OCA\RocketIntegration\AppInfo\Application;
+use OCA\RocketchatNextcloud\AppInfo\Application;
 use OCP\Activity\ISetting;
 use OCP\IL10N;
 
@@ -76,4 +76,3 @@ class Setting implements ISetting {
         return false;
     }
 }
-

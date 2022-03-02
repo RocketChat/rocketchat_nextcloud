@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\RocketIntegration\Tests\Integration\Controller;
+namespace OCA\RocketchatNextcloud\Tests\Integration\Controller;
 
 use OCP\AppFramework\App;
 use Test\TestCase;
@@ -17,13 +17,13 @@ class AppTest extends TestCase {
 
     public function setUp() {
         parent::setUp();
-        $app = new App('rocket_integration');
+        $app = new App('rocketchat_nextcloud');
         $this->container = $app->getContainer();
     }
 
     public function testAppInstalled() {
         $appManager = $this->container->query('OCP\App\IAppManager');
-        $this->assertTrue($appManager->isInstalled('rocket_integration'));
+        $this->assertTrue($appManager->isInstalled('rocketchat_nextcloud'));
     }
 
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\RocketIntegration\Db;
+namespace OCA\RocketchatNextcloud\Db;
 
-use OCA\RocketIntegration\AppInfo\Application;
+use OCA\RocketchatNextcloud\AppInfo\Application;
 
 class Config {
     protected $rocketChatUrlKey;

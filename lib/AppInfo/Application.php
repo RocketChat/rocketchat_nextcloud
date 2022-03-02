@@ -1,5 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 /*
+
  _____________________________________________________________
 |   Rocket Chat NextCloud App                                 |
 |   Authors: Ruvenss G. Wilches & Pierre Locus                |
@@ -8,21 +12,25 @@
 |   Live long and Prosper                                     | 
 |_____________________________________________________________|                                                                                                                                                                             
 */
-namespace OCA\RocketIntegration\AppInfo;
-use OCA\RocketIntegration\Db\Config;
-use OCP\AppFramework\App;
 
-class Application extends App {
-    const APP_ID = 'rocket_integration';
+namespace OCA\RocketchatNextcloud\AppInfo;
+
+use OCA\RocketchatNextcloud\Db\Config;
+use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+
+class Application extends App implements IBootstrap{
+    public const APP_ID = 'rocketchat_nextcloud';
 
     public function __construct()
     {
         parent::__construct(self::APP_ID);
     }
 
-    public function register()
-    {
-        if ( ! \OC::$server->getAppManager()->isEnabledForUser(self::APP_ID)) {
+    public function register(IRegistrationContext $context): void {
+		if ( ! \OC::$server->getAppManager()->isEnabledForUser(self::APP_ID)) {
             return;
         }
 
@@ -32,7 +40,12 @@ class Application extends App {
             $this->registerNavigationRoute();
             $this->registerScripts();
         }
-    }
+	}
+
+	public function boot(IBootContext $context): void {
+		// TODO: the day we need boot
+        return;
+	}
 
     protected function registerNavigationRoute()
     {
@@ -54,7 +67,7 @@ class Application extends App {
     {
         $eventDispatcher = \OC::$server->getEventDispatcher();
         $eventDispatcher->addListener('OCA\Files::loadAdditionalScripts', function() {
-            script(self::APP_ID, 'rocket_integration');
+            script(self::APP_ID, 'rocketchat_nextcloud');
 //            style(self::name, 'styles');
         });
     }
