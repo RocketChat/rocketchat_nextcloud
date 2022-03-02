@@ -14,7 +14,7 @@ style('rocketchat_nextcloud', 'style');
 <div class="rocket-info-wrapper">
     
         <div class="section">
-            <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.2 RC</h2>
+            <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.4 RC</h2>
       
             <div class="row">
                     <div class="col col-6">
@@ -52,7 +52,7 @@ style('rocketchat_nextcloud', 'style');
                                 
                                     <input type="text" placeholder="rocket chat user" class="input rocketinput rocketform" name="rcuser" id="rcuser" require>
                                     <input type="password" placeholder="rocket chat password" class="input rocketinput rocketform" name="rcpassword" id="rcpassword" require>
-                                    <input type="url" placeholder="https://your.rocket.chat.server.com" class="input rocketinput rocketform" name="url" id="rcurl" value="<?= p($_['rocketUrl']); ?>" required>
+                                    <input type="url" placeholder="https://your.rocket.chat.server.com do not use http://localhost:3000" class="input rocketinput rocketform" name="url" id="rcurl" value="<?= p($_['rocketUrl']); ?>" required>
                                     <button class="button rocketform" id="rcconnect"> Connect and save</button>
                                    
                             </p>
@@ -79,7 +79,14 @@ style('rocketchat_nextcloud', 'style');
         <h2>Support</h2>
         <p>
             Tell us what would you like to see with this App or report any issue here:
-            <a href="https://github.com/RocketChat/NextCloud/issues/new" target="_blank" class="button link-button"><img src="/apps/support/img/github.svg" width="12"> RocketChat NextCloud at GitHub</a>
+            <a href="https://github.com/RocketChat/rocketchat_nextcloud/issues/new" target="_blank" class="button link-button"><img src="/apps/support/img/github.svg" width="12"> RocketChat NextCloud at GitHub</a>
+        </p>
+    </div>
+    <div class="section">
+        <h2>Documentation</h2>
+        <p>
+            Check our Wiki Here:
+            <a href="https://github.com/RocketChat/rocketchat_nextcloud/wiki" target="_blank" class="button link-button"><img src="/apps/support/img/github.svg" width="12"> Wiki GitHub</a>
         </p>
     </div>
 </div>
