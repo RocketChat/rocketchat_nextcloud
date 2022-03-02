@@ -22,7 +22,7 @@ class ComposerAutoloaderInitab3b88705396b7bfc3a6249f0e1414fb
             return self::$loader;
         }
 
-        require __DIR__ . '/platform_check.php';
+        // require __DIR__ . '/platform_check.php';
 
         spl_autoload_register(array('ComposerAutoloaderInitab3b88705396b7bfc3a6249f0e1414fb', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(\dirname(__FILE__)));

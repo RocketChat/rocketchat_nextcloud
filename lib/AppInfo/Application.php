@@ -30,6 +30,7 @@ class Application extends App implements IBootstrap{
     }
 
     public function register(IRegistrationContext $context): void {
+        require_once __DIR__ . '/../../vendor/autoload.php';
 		if ( ! \OC::$server->getAppManager()->isEnabledForUser(self::APP_ID)) {
             return;
         }
