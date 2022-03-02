@@ -19,13 +19,15 @@ use phpDocumentor\Reflection\Type;
  * Value Object representing the 'parent' type.
  *
  * Parent, as a Type, represents the parent class of class in which the associated element was defined.
+ *
+ * @psalm-immutable
  */
 final class Parent_ implements Type
 {
     /**
      * Returns a rendered output of the Type as it would be used in a DocBlock.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return 'parent';
     }

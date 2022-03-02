@@ -20,13 +20,15 @@ use phpDocumentor\Reflection\Type;
  *
  * $this, as a Type, represents the instance of the class associated with the element as it was called. $this is
  * commonly used when documenting fluent interfaces since it represents that the same object is returned.
+ *
+ * @psalm-immutable
  */
 final class This implements Type
 {
     /**
      * Returns a rendered output of the Type as it would be used in a DocBlock.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return '$this';
     }

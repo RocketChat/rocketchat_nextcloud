@@ -1,17 +1,17 @@
 {
-    "name": "RocketChat",
-    "description": "Rocket Chat Official App for NextCloud",
-    "type": "project",
-    "license": "AGPL",
-    "authors": [
-        {
-            "name": "Marvin AI"
-        }
-    ],
-    "require": {
-        "nategood/httpful": "^0.3.2"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.4"
-    }
+	"name": "rocketchat/integration",
+	"description": "Rocket Chat Official App for NextCloud",
+	"type": "project",
+	"license": "AGPLv3",
+	"authors": [
+		{
+			"name": "Marvin AI"
+		}
+	],
+	"require": {
+		"nategood/httpful": "^0.3.2"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.4"
+	}
 }
