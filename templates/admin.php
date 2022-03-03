@@ -43,28 +43,23 @@ style('rocketchat_nextcloud', 'style');
                             
                         </div>
                     </div>
-                    
                     <div class="col col-12">
                         <div id="rocketURL" class="infobox">
                             <p class="rocketp"> <img src="/apps/rocketchat_nextcloud/img/login-svgrepo-com.svg" class="infoicon"> Auto generate Token and User ID <br><br>Your user name and password won't be saved. 
-                                
                                     <input type="text" placeholder="rocket chat user" class="input rocketinput rocketform" name="rcuser" id="rcuser" require>
                                     <input type="password" placeholder="rocket chat password" class="input rocketinput rocketform" name="rcpassword" id="rcpassword" require>
                                     <input type="url" placeholder="https://your.rocket.chat.server.com do not use http://localhost:3000" class="input rocketinput rocketform" name="url" id="rcurl" value="<?= p($_['rocketUrl']); ?>" required>
                                     <button class="button rocketform" id="rcconnect"> Connect and save</button>
-                                   
                             </p>
                         </div>
                     </div>
             </div>
-            
         </div>
-        
     </form>
     <div class="section">
         <h2>Features</h2>
         <p>
-            🔑 Automatic login.
+            🔑 Automatic login via iframe token login.
         </p>
         <p>
             👤 Automatic user creation in Rocket.Chat
