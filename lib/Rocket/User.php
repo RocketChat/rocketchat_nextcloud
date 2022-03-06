@@ -91,18 +91,13 @@ class User extends Client
         }
     }
 
-    public function getTokenByUserId($userId)
-    {
-        return;
-    }
-
     public function createTokenByUserId($userId)
     {
         try {
             $payload = [
                 'userId' => $userId,
             ];
-            $response = Request::post($this->api . self::CREATE_TOKEN, $payload, Mime::FORM)->send();
+            $response = $this->rcPost(self::CREATE_TOKEN, $payload);
             if ($response->code == 200 && isset($response->body->success) && $response->body->success == true) {
                 return [
                     'status' => 'success',
@@ -135,19 +130,9 @@ class User extends Client
                 'pass' => $uuidPassword,
                 'email' => $email
             ];
-            $userId = $this->config->getAdminID();
-            $authToken = $this->config->getPersonal_access_token();
-            $rocketUrl = $this->config->getUrl();
-            if ($rocketUrl[-1] != '/') {
-                $rocketUrl .= '/';
-            }
-            $response = Request::post($rocketUrl . self::V1 . self::REGISTER_USER, $payload, Mime::FORM)
-                ->addHeaders([
-                    'X-Auth-Token' => $authToken,
-                    'X-User-Id' => $userId,
-                ])
-                ->expectsJson()
-                ->send();
+
+            $response = $this->rcPost(self::REGISTER_USER, $payload);
+
             if (isset($response->body->success) && $response->body->success == true) {
                 $_id = $response->body->user->_id;
                 $token = $this->authenticateUser($username, $uuidPassword);
@@ -171,74 +156,68 @@ class User extends Client
 
     public function getUserInfo($ncUserId)
     {
-        $userId = $this->config->getAdminID();
-        $authToken = $this->config->getPersonal_access_token();
-        $rocketUrl = $this->config->getUrl();
-        $userInfoUrl = $rocketUrl . self::V1 . self::USER_INFO . '?' . http_build_query([
-            'username' => $ncUserId,
-        ]);
+        try {
+            $payload = [
+                'username' => $ncUserId,
+            ];
 
-        $response = Request::get($userInfoUrl)
-            ->addHeaders([
-                'X-Auth-Token' => $authToken,
-                'X-User-Id' => $userId,
-            ])
-            ->expectsJson()
-            ->send();
-        if ($response->code == 200 || $response->body->success == true) {
-            return $response->body;
-        }
-
-        if ($response->body->success == false) {
-            return false;
+            $response = $this->rcGet(self::USER_INFO, $payload);
+            if ($response->code == 200 && $response->body->success == true) {
+                return $response->body;
+            }
+        } catch (Exception $e) {
+            $this->logger->error('Error in getUserInfo : ' . $e->getMessage());
         }
         return false;
     }
 
     public function authenticateUser($ncUserId, $uuidPassword=false)
     {
-        $userId = $this->config->getAdminID();
-        $authToken = $this->config->getPersonal_access_token();
-        $rocketUrl = $this->config->getUrl();
-        $payload = [
-            'username' => $ncUserId
-        ];
-        if ($rocketUrl[-1] != '/') {
-            $rocketUrl .= '/';
-        }
-        $response = Request::post($rocketUrl . self::V1 . self::CREATE_TOKEN, $payload, Mime::FORM)
-            ->addHeaders([
-                'X-Auth-Token' => $authToken,
-                'X-User-Id' => $userId,
-            ])
-            ->expectsJson()
-            ->send();
-        if ($response->code == 200 || $response->body->success == true) {
-            $this->rocketUserDb->createRocketUser(
-                $ncUserId,
-                $response->body->data->userId,
-                $response->body->data->authToken,
-                $uuidPassword
-            );
-            return $response->body->data->authToken;
+        try {
+            $payload = [
+                'username' => $ncUserId
+            ];
+            $response = $this->rcPost(self::CREATE_TOKEN, $payload);
+
+            if ($response->code == 200 && $response->body->success == true) {
+                $this->rocketUserDb->createRocketUser(
+                    $ncUserId,
+                    $response->body->data->userId,
+                    $response->body->data->authToken,
+                    $uuidPassword
+                );
+                return $response->body->data->authToken;
+            }
+        } catch (Exception $e) {
+            $this->logger->error('Exception when authenticating user : ' . $e->getMessage());
         }
         return false;
     }
 
     public function findByNcUserId($ncUserId)
     {
-        /* Check if user exists in NC Db: means he has token */
-        $userInDb = $this->rocketUserDb->getByNcUserId($ncUserId);
-        if ($userInDb) {
-            return $userInDb['rc_token'];
+        try {
+            // Bypassing for now, even if tokens shouldn't expire 
+            // it looks like I cannot re-use the one I have in database
+            /* Check if user exists in NC Db: means he has token */
+            // $userInDb = $this->rocketUserDb->getByNcUserId($ncUserId);
+            // if ($userInDb) {
+            //     $this->logger->warning('User was in DB, token is');
+            //     $this->logger->warning($userInDb['rc_token']);
+            //     return $userInDb['rc_token'];
+            // }
+
+            /* Check if user exists in RC : means we must authenticate and keep his token */
+            $userInRocket = $this->getUserInfo($ncUserId);
+            if ($userInRocket) {
+                $auth = $this->authenticateUser($ncUserId);
+                return $auth;
+            }
+            /* If none: create user in rocket then authenticate */
+            return $this->createUser()['authToken'];
+        } catch (Exception $e) {
+            $this->logger->error('Exception when creating user in Rocket Chat : ' . $e->getMessage());
         }
-        /* Check if user exists in RC : means we must authenticate and keep his token */
-        $userInRocket = $this->getUserInfo($ncUserId);
-        if ($userInRocket) {
-            return $this->authenticateUser($ncUserId);
-        }
-        /* If none: create user in rocket then authenticate */
-        return $this->createUser()['authToken'];
     }
 
     public function loginAdmin($url, $username, $password)
@@ -267,12 +246,13 @@ class User extends Client
                     'authToken' => $authToken,
                 ];
             }
-
+            $this->logger->warning('Couldn\'t login admin, unknown error');
             return [
                 'status' => 'error',
-                'message' => 'Couldn\'t login user',
+                'message' => 'Couldn\'t login admin',
             ];
         } catch (Exception $e) {
+            $this->logger->error('Exception when login admin : ' . $e->getMessage());
             return [
                 'status' => 'error',
                 'message' => $e->getMessage()

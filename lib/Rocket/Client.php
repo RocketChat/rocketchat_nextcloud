@@ -3,6 +3,7 @@
 namespace OCA\RocketchatNextcloud\Rocket;
 
 use Httpful\Request;
+use Httpful\Mime;
 use OCA\RocketchatNextcloud\Db\Config;
 
 class Client
@@ -12,10 +13,14 @@ class Client
     public function __construct()
     {
         $config = new Config();
+        $this->api = $config->getUrl() . '/api/v1/';
+    }
 
+    public function getUserIdAuthToken()
+    {
+        $config = new Config();
         $userId = '';
         $authToken = '';
-
         foreach ($config->getAdminData() as $key => $setting) {
             if ($setting['configkey'] === 'user_id') {
                 $userId = $setting['configvalue'];
@@ -25,17 +30,41 @@ class Client
                 $authToken = $setting['configvalue'];
             }
         }
+        return [
+            'userId' => $userId,
+            'authToken' => $authToken
+        ];
+    }
 
-        $this->api = $config->getUrl() . '/api/v1/';
+    public function rcPost($endpoint, $payload)
+    {
+        $userToken = $this->getUserIdAuthToken();
+        $userId = $userToken['userId'];
+        $authToken = $userToken['authToken'];
 
-        $tmp = Request::init()
+        return Request::post($this->api . $endpoint, $payload, Mime::FORM)
             ->addHeaders([
                 'X-Auth-Token' => $authToken,
                 'X-User-Id' => $userId,
             ])
             ->sendsJson()
-            ->expectsJson();
+            ->expectsJson()
+            ->send();
+    }
 
-        Request::ini($tmp);
+    public function rcGet($endpoint, $payload)
+    {
+        $userToken = $this->getUserIdAuthToken();
+        $userId = $userToken['userId'];
+        $authToken = $userToken['authToken'];
+
+        $endpoint .= '?' . http_build_query($payload);
+        return Request::get($this->api . $endpoint)
+            ->addHeaders([
+                'X-Auth-Token' => $authToken,
+                'X-User-Id' => $userId,
+            ])
+            ->expectsJson()
+            ->send();
     }
 }

@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 7000);
     }
 
+    // Always logout the user first, as it could be using a session of another user
+    document.querySelector('iframe').addEventListener("load", function() {
+        this.contentWindow.postMessage({
+            externalCommand: 'logout',
+        }, '*');
+    });
+
     var token = document.querySelector('input[name=rocketchat_token]').value;
     if (token) {
         document.querySelector('iframe').addEventListener("load", function() {

@@ -61,7 +61,7 @@ class PageController extends Controller {
 
         $userUID = $this->userSession->getUser()->getUID();
         $authToken = $this->rocketUser->findByNcUserId($userUID);
-        
+
 		$response = new TemplateResponse($this->appName, 'index', [
 		    'url' => $rocketChatUrl,
             'token' => $authToken,
