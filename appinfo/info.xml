@@ -20,6 +20,10 @@ Using this integration, Nextcloud customers can now:
 - Make digital workplaces and communities more engaging and collaborative using Rocket.Chat’s marketplace of apps
 - Ensure full governance of all their communications using message audits, flexible retention policies, powerful engagement analytics and dashboards, and more
 - Send advanced message formatting like code snippets, formula syntax, message threads, and more
+
+Adding one or multiple Nextcloud storages to a Rocket.Chat setup is fairly quick and easy. To enable this integration, simply follow this guide.
+https://docs.rocket.chat/guides/administration/admin-panel/integrations/nextcloud-and-webdav
+
 	]]>
     </description>
     <version>0.9.6</version>
