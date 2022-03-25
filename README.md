@@ -14,3 +14,7 @@ Place this app in **nextcloud/apps/**
 While using NextCloud you can receive notifications from Rocket chat by allowing the browser to send desktop notifications.
 
 You can learn how to enable browser notifications here: https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DDesktop&hl=en
+
+## Full documented video to install both platforms from scratch in Ubuntu 20.0.x here:
+
+[https://youtu.be/AshE2uG87GE](https://youtu.be/AshE2uG87GE)
