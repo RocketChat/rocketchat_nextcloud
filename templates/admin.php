@@ -13,7 +13,7 @@ style('rocketchat_nextcloud', 'style');
 ?>
 <div class="rocket-info-wrapper">
         <div class="section">
-            <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.6 RC</h2>
+            <h2><img src="/apps/rocketchat_nextcloud/img/rocket-logo-black.png" width=15> Rocket Chat v.0.9.7 RC</h2>
             <div class="row">
                     <div class="col col-6">
                         <div id="rocketURL" class="infobox">
@@ -66,6 +66,9 @@ style('rocketchat_nextcloud', 'style');
         </p>
         <p>
             ⚙️ Easy setup.
+        </p>
+        <p>
+            ⚙️ Handle your user base only from NextCloud.
         </p>
     </div>
     <div class="section">
