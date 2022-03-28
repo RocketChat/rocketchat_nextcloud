@@ -121,6 +121,7 @@ class User extends Client
         try {
             $user = $this->userSession->getUser();
             $username = $user->getUID();
+            $username = str_replace('@', '.', $username);
             $name = $user->getDisplayName();
             $email = $user->getEMailAddress();
             $uuidPassword = Uuid::uuid4()->toString();
@@ -223,7 +224,7 @@ class User extends Client
                 return $auth;
             }
             /* If none: create user in rocket then authenticate */
-            
+
             return $this->createUser()['authToken'];
         } catch (Exception $e) {
             $this->logger->error('Exception when creating user in Rocket Chat : ' . $e->getMessage());
