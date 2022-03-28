@@ -132,10 +132,16 @@ class User extends Client
             ];
 
             $response = $this->rcPost(self::REGISTER_USER, $payload);
-
+            $this->logger->error('Trying to register User in RocketChat :' . print_r($response, true));
             if (isset($response->body->success) && $response->body->success == true) {
                 $_id = $response->body->user->_id;
+                $this->logger->error('Success ! Getting token with authenticate');
                 $token = $this->authenticateUser($username, $uuidPassword);
+                $this->logger->error(print_r([
+                    'status' => 'success',
+                    'userId' => $_id,
+                    'authToken' => $token
+                ], true));
                 return [
                     'status' => 'success',
                     'userId' => $_id,
@@ -160,8 +166,8 @@ class User extends Client
             $payload = [
                 'username' => $ncUserId,
             ];
-
             $response = $this->rcGet(self::USER_INFO, $payload);
+            $this->logger->error('Got response from GetUserInfo : ' . print_r($response, true));
             if ($response->code == 200 && $response->body->success == true) {
                 return $response->body;
             }
@@ -178,7 +184,7 @@ class User extends Client
                 'username' => $ncUserId
             ];
             $response = $this->rcPost(self::CREATE_TOKEN, $payload);
-
+            $this->logger->info('Got response from RC Authenticate User:' . print_r($response, true));
             if ($response->code == 200 && $response->body->success == true) {
                 $this->rocketUserDb->createRocketUser(
                     $ncUserId,
@@ -208,12 +214,16 @@ class User extends Client
             // }
 
             /* Check if user exists in RC : means we must authenticate and keep his token */
+            $this->logger->error('Trying to get User Info from RocketChat');
             $userInRocket = $this->getUserInfo($ncUserId);
             if ($userInRocket) {
+                $this->logger->error('Found user in Rocket, authenticating...');
                 $auth = $this->authenticateUser($ncUserId);
+                $this->logger->error(print_r($auth, true));
                 return $auth;
             }
             /* If none: create user in rocket then authenticate */
+            
             return $this->createUser()['authToken'];
         } catch (Exception $e) {
             $this->logger->error('Exception when creating user in Rocket Chat : ' . $e->getMessage());
