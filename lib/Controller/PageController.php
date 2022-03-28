@@ -60,7 +60,7 @@ class PageController extends Controller {
         }
 
         $userUID = $this->userSession->getUser()->getUID();
-        $userUID = str_replace('@', '.', $userUID);
+        $userUID = str_replace('@', '_at_', $userUID);
         $authToken = $this->rocketUser->findByNcUserId($userUID);
 
 		$response = new TemplateResponse($this->appName, 'index', [

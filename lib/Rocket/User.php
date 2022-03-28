@@ -121,7 +121,7 @@ class User extends Client
         try {
             $user = $this->userSession->getUser();
             $username = $user->getUID();
-            $username = str_replace('@', '.', $username);
+            $username = str_replace('@', '_at_', $username);
             $name = $user->getDisplayName();
             $email = $user->getEMailAddress();
             $uuidPassword = Uuid::uuid4()->toString();
